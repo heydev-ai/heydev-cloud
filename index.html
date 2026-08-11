@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEYDEV — Brand Domain Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-glow: #818cf8;
+            --accent: #22d3ee;
+            --dark: #0f0f1a;
+            --darker: #08080f;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --card: rgba(255,255,255,0.03);
+            --border: rgba(255,255,255,0.08);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--darker);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .badge {
+            background: rgba(34, 211, 238, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(34,211,238,0.1));
+            border: 1px solid rgba(99,102,241,0.2);
+            color: var(--primary-glow);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .domain-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #fff 0%, #818cf8 50%, #22d3ee 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 640px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            box-shadow: 0 4px 24px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--card);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .portfolio-section {
+            padding: 40px 0 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            font-size: 0.95rem;
+        }
+
+        .domain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .domain-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px 28px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .domain-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .domain-card:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 48px rgba(0,0,0,0.4);
+        }
+
+        .domain-card:hover::before {
+            opacity: 1;
+        }
+
+        .domain-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .domain-card-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.5px;
+        }
+
+        .domain-card-tld {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .domain-tag {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary-glow);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .domain-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .domain-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .domain-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .value-section {
+            padding: 60px 0;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .value-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            border-color: rgba(99, 102, 241, 0.2);
+        }
+
+        .value-card-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 18px;
+        }
+
+        .value-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .value-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .contact-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(34,211,238,0.05));
+            border: 1px solid rgba(99,102,241,0.15);
+            border-radius: 24px;
+            padding: 60px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-box h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .contact-box p {
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            font-size: 1rem;
+        }
+
+        .email-display {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 28px;
+            font-family: 'Space Grotesk', monospace;
+            font-size: 1.1rem;
+            color: var(--accent);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .email-display:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: var(--accent);
+        }
+
+        .copy-hint {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+            opacity: 0.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.3;
+            pointer-events: none;
+            animation: float 15s infinite;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
+
+        @media (max-width: 640px) {
+            .hero { padding: 40px 0 30px; }
+            .contact-box { padding: 40px 24px; }
+            .domain-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles"></div>
+
+    <div class="container">
+        <nav>
+            <div class="logo">HEY<span>DEV</span></div>
+            <div class="badge">Open to Partnership</div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-label">Brand Domain Portfolio</div>
+            <h1 class="domain-name">HEYDEV</h1>
+            <p class="tagline">
+                A curated set of brand-grade domains — .cn, .com.cn, and .cloud — <br>
+                built for teams ready to own the developer space.
+            </p>
+            <div class="cta-group">
+                <a href="mailto:jimmyshu51@gmail.com?subject=HEYDEV%20Brand%20Partnership%20Inquiry" class="btn btn-primary">
+                    Let's Talk
+                </a>
+                <a href="#portfolio" class="btn btn-secondary">
+                    Explore Portfolio
+                </a>
+            </div>
+        </section>
+
+        <section class="portfolio-section" id="portfolio">
+            <h2 class="section-title">Domain Portfolio</h2>
+            <p class="section-subtitle">Three complementary assets. One cohesive brand strategy.</p>
+            
+            <div class="domain-grid">
+                <div class="domain-card">
+                    <div class="domain-card-header">
+                        <div class="domain-card-name">HEYDEV<span class="domain-card-tld">.CN</span></div>
+                        <span class="domain-tag">China Core</span>
+                    </div>
+                    <p>The definitive entry point for the Chinese developer market. Short, memorable, and locally rooted — ideal for tech communities, dev platforms, and domestic SaaS brands seeking strong local identity.</p>
+                    <div class="domain-meta">
+                        <span>🇨🇳 China Market</span>
+                        <span>⚡ 6 Letters</span>
+                    </div>
+                </div>
+
+                <div class="domain-card">
+                    <div class="domain-card-header">
+                        <div class="domain-card-name">HEYDEV<span class="domain-card-tld">.COM.CN</span></div>
+                        <span class="domain-tag">Enterprise Trust</span>
+                    </div>
+                    <p>Blends global commercial credibility with local compliance. The natural choice for B2B tech services, enterprise solutions, and official brand presence where trust and authority matter.</p>
+                    <div class="domain-meta">
+                        <span>🏢 Enterprise</span>
+                        <span>🛡️ Business Grade</span>
+                    </div>
+                </div>
+
+                <div class="domain-card">
+                    <div class="domain-card-header">
+                        <div class="domain-card-name">HEYDEV<span class="domain-card-tld">.CLOUD</span></div>
+                        <span class="domain-tag">Cloud Native</span>
+                    </div>
+                    <p>Instantly signals cloud infrastructure, DevOps, and modern architecture. A sharp, category-specific asset for teams building in the cloud-native and infrastructure space.</p>
+                    <div class="domain-meta">
+                        <span>☁️ Cloud Native</span>
+                        <span>🚀 High Relevance</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="value-section">
+            <h2 class="section-title">Why the Bundle?</h2>
+            <p class="section-subtitle">Strategic domain synergy — protect, position, and scale.</p>
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-card-icon">🎯</div>
+                    <h3>Brand Moat</h3>
+                    <p>Owning .cn, .com.cn, and .cloud together locks down your brand namespace. No fragmentation, no impersonation, no traffic leaks.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-card-icon">🌐</div>
+                    <h3>Full Spectrum</h3>
+                    <p>Each domain serves a distinct strategic role — local reach, enterprise trust, and cloud positioning — covering every stage of your growth.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-card-icon">💎</div>
+                    <h3>Scarce Assets</h3>
+                    <p>Premium short domains are finite. "Hey + Dev" carries built-in warmth and instant developer recognition — a rare combination.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-card-icon">📈</div>
+                    <h3>Compound Value</h3>
+                    <p>The portfolio is worth more than the sum of its parts. Designed for teams thinking long-term about brand architecture.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <div class="contact-box">
+                <h2>Ready to Build Something?</h2>
+                <p>If you're a team with a vision for the developer ecosystem, let's explore how this portfolio can become your foundation.</p>
+                <a href="mailto:jimmyshu51@gmail.com?subject=HEYDEV%20Brand%20Partnership%20Inquiry" class="email-display" id="emailBox">
+                    <span>✉️</span>
+                    <span>jimmyshu51@gmail.com</span>
+                </a>
+                <p class="copy-hint">Click to open your email client</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 HEYDEV Domain Portfolio · Partnership Inquiries: jimmyshu51@gmail.com</p>
+        </footer>
+    </div>
+
+    <script>
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.top = Math.random() * 100 + 'vh';
+            p.style.animationDelay = Math.random() * 15 + 's';
+            p.style.animationDuration = (10 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(p);
+        }
+
+        document.getElementById('emailBox').addEventListener('click', function(e) {
+            this.style.background = 'rgba(34, 211, 238, 0.1)';
+            setTimeout(() => {
+                this.style.background = '';
+            }, 300);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
