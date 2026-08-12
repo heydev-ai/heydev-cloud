@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEYDEV — Brand Domain Portfolio</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NSM3G53P43"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-NSM3G53P43');
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
@@ -429,7 +440,7 @@
                 built for teams ready to own the developer space.
             </p>
             <div class="cta-group">
-                <a href="mailto:jimmyshu51@gmail.com?subject=HEYDEV%20Brand%20Partnership%20Inquiry" class="btn btn-primary">
+                <a href="mailto:jimmyshu51@gmail.com?subject=HEYDEV%20Brand%20Partnership%20Inquiry" class="btn btn-primary" id="heroCtaBtn">
                     Let's Talk
                 </a>
                 <a href="#portfolio" class="btn btn-secondary">
@@ -530,6 +541,7 @@
     </div>
 
     <script>
+        // Generate particles
         const particlesContainer = document.getElementById('particles');
         for (let i = 0; i < 30; i++) {
             const p = document.createElement('div');
@@ -541,13 +553,35 @@
             particlesContainer.appendChild(p);
         }
 
+        // Helper function for GA4 event tracking
+        function trackEmailClick(locationLabel) {
+            if (typeof gtag === 'function') {
+                gtag('event', 'click_contact_email', {
+                    'event_category': 'Engagement',
+                    'event_label': locationLabel
+                });
+            }
+        }
+
+        // Bottom Email Box Click Event
         document.getElementById('emailBox').addEventListener('click', function(e) {
             this.style.background = 'rgba(34, 211, 238, 0.1)';
             setTimeout(() => {
                 this.style.background = '';
             }, 300);
+
+            trackEmailClick('Bottom Contact Card');
         });
 
+        // Top Hero CTA Button Click Event
+        const heroBtn = document.getElementById('heroCtaBtn');
+        if (heroBtn) {
+            heroBtn.addEventListener('click', function() {
+                trackEmailClick('Hero CTA Button');
+            });
+        }
+
+        // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
