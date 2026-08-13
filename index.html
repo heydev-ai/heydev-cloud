@@ -4,8 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="baidu-site-verification" content="codeva-mQL7G5qk0k" />
-    <title>Heydev.cloud - 专为云原生与开发者打造的优质域名出售</title>
-    <meta name="description" content="heydev.cloud 域名出售。这是一个面向未来的黄金域名，非常适合云原生应用、SaaS 产品、开发者工具或任何科技品牌。立即联系，获取报价！">
+    
+    <!-- SEO Core -->
+    <title>HEYDEV — Brand Domain Portfolio | heydev.cn · heydev.com.cn · heydev.cloud</title>
+    <meta name="description" content="HEYDEV brand domain portfolio: heydev.cn (China developer market core), heydev.com.cn (enterprise trust), heydev.cloud (cloud-native positioning). Built for developer tools, SaaS, cloud-native teams. Open to brand partnership and strategic acquisition.">
+    <meta name="keywords" content="heydev, developer domain, dev domain, domain for sale, tech brand, cloud native domain, developer tools brand, heydev.cn, heydev.cloud, domain investment, brand moat">
+    <meta name="author" content="HEYDEV">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="HEYDEV — Developer Brand Domain Portfolio">
+    <meta property="og:description" content="A curated set of brand-grade domains — .cn, .com.cn, and .cloud — built for teams ready to own the developer space.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://heydev.cloud/">
+    <meta property="og:site_name" content="HEYDEV">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "HEYDEV",
+      "url": "https://heydev.cloud",
+      "email": "jimmyshu51@gmail.com",
+      "description": "Developer brand domain portfolio covering heydev.cn, heydev.com.cn, and heydev.cloud",
+      "brand": {
+        "@type": "Brand",
+        "name": "HEYDEV"
+      }
+    }
+    </script>
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NSM3G53P43"></script>
@@ -13,7 +41,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-NSM3G53P43');
     </script>
 
@@ -173,7 +200,7 @@
 
         .section-title {
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
             margin-bottom: 12px;
             color: var(--text);
@@ -274,8 +301,76 @@
             gap: 6px;
         }
 
+        /* Developer Stories - New */
+        .stories-section {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .story-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .story-card:hover {
+            border-color: rgba(99, 102, 241, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .story-card .quote-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            opacity: 0.3;
+            margin-bottom: 12px;
+            font-family: Georgia, serif;
+        }
+
+        .story-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .story-card .story-role {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: inline-block;
+            background: rgba(34, 211, 238, 0.08);
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+
+        .story-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .story-card .story-domain {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-family: 'Space Grotesk', monospace;
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
         .value-section {
             padding: 60px 0;
+            border-top: 1px solid var(--border);
         }
 
         .value-grid {
@@ -320,9 +415,11 @@
             line-height: 1.6;
         }
 
+        /* Contact Section - Refactored */
         .contact-section {
             padding: 80px 0;
             text-align: center;
+            border-top: 1px solid var(--border);
         }
 
         .contact-box {
@@ -330,8 +427,14 @@
             border: 1px solid rgba(99,102,241,0.15);
             border-radius: 24px;
             padding: 60px 40px;
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
+            text-align: left;
+        }
+
+        .contact-box-header {
+            text-align: center;
+            margin-bottom: 40px;
         }
 
         .contact-box h2 {
@@ -340,10 +443,51 @@
             margin-bottom: 12px;
         }
 
-        .contact-box p {
+        .contact-box > p {
             color: var(--text-muted);
             margin-bottom: 32px;
-            font-size: 1rem;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-info li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .contact-info li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .contact-info .highlight {
+            color: var(--accent);
+            font-weight: 600;
         }
 
         .email-display {
@@ -360,6 +504,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
+            margin-top: 8px;
         }
 
         .email-display:hover {
@@ -372,6 +517,23 @@
             color: var(--text-muted);
             margin-top: 12px;
             opacity: 0.7;
+            text-align: center;
+        }
+
+        .contact-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 32px 0;
+        }
+
+        .contact-cta {
+            text-align: center;
+        }
+
+        .contact-cta p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
         }
 
         footer {
@@ -418,10 +580,15 @@
             100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
             .hero { padding: 40px 0 30px; }
             .contact-box { padding: 40px 24px; }
             .domain-grid { grid-template-columns: 1fr; }
+            .stories-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -429,12 +596,12 @@
     <div id="particles"></div>
 
     <div class="container">
-        <nav>
+        <nav role="navigation" aria-label="Main navigation">
             <div class="logo">HEY<span>DEV</span></div>
             <div class="badge">Open to Partnership</div>
         </nav>
 
-        <section class="hero">
+        <header class="hero" role="banner">
             <div class="hero-label">Brand Domain Portfolio</div>
             <h1 class="domain-name">HEYDEV</h1>
             <p class="tagline">
@@ -442,98 +609,176 @@
                 built for teams ready to own the developer space.
             </p>
             <div class="cta-group">
-                <a href="mailto:jimmyshu51@gmail.com?subject=HEYDEV%20Brand%20Partnership%20Inquiry" class="btn btn-primary" id="heroCtaBtn">
+                <a href="#contact" class="btn btn-primary" id="heroCtaBtn" aria-label="Go to contact section">
                     Let's Talk
                 </a>
-                <a href="#portfolio" class="btn btn-secondary">
+                <a href="#portfolio" class="btn btn-secondary" aria-label="Explore domain portfolio">
                     Explore Portfolio
                 </a>
             </div>
-        </section>
+        </header>
 
-        <section class="portfolio-section" id="portfolio">
-            <h2 class="section-title">Domain Portfolio</h2>
-            <p class="section-subtitle">Three complementary assets. One cohesive brand strategy.</p>
-            
-            <div class="domain-grid">
-                <div class="domain-card">
-                    <div class="domain-card-header">
-                        <div class="domain-card-name">HEYDEV<span class="domain-card-tld">.CN</span></div>
-                        <span class="domain-tag">China Core</span>
-                    </div>
-                    <p>The definitive entry point for the Chinese developer market. Short, memorable, and locally rooted — ideal for tech communities, dev platforms, and domestic SaaS brands seeking strong local identity.</p>
-                    <div class="domain-meta">
-                        <span>🇨🇳 China Market</span>
-                        <span>⚡ 6 Letters</span>
-                    </div>
-                </div>
+        <main>
+            <!-- Domain Portfolio -->
+            <section class="portfolio-section" id="portfolio" aria-labelledby="portfolio-title">
+                <h2 class="section-title" id="portfolio-title">Domain Portfolio</h2>
+                <p class="section-subtitle">Three complementary assets. One cohesive brand strategy.</p>
+                
+                <div class="domain-grid">
+                    <article class="domain-card">
+                        <div class="domain-card-header">
+                            <h3 class="domain-card-name">HEYDEV<span class="domain-card-tld">.CN</span></h3>
+                            <span class="domain-tag">China Core</span>
+                        </div>
+                        <p>The definitive entry point for the Chinese developer market. Short, memorable, and locally rooted — ideal for tech communities, dev platforms, and domestic SaaS brands seeking strong local identity.</p>
+                        <div class="domain-meta">
+                            <span>🇨🇳 China Market</span>
+                            <span>⚡ 6 Letters</span>
+                        </div>
+                    </article>
 
-                <div class="domain-card">
-                    <div class="domain-card-header">
-                        <div class="domain-card-name">HEYDEV<span class="domain-card-tld">.COM.CN</span></div>
-                        <span class="domain-tag">Enterprise Trust</span>
-                    </div>
-                    <p>Blends global commercial credibility with local compliance. The natural choice for B2B tech services, enterprise solutions, and official brand presence where trust and authority matter.</p>
-                    <div class="domain-meta">
-                        <span>🏢 Enterprise</span>
-                        <span>🛡️ Business Grade</span>
-                    </div>
-                </div>
+                    <article class="domain-card">
+                        <div class="domain-card-header">
+                            <h3 class="domain-card-name">HEYDEV<span class="domain-card-tld">.COM.CN</span></h3>
+                            <span class="domain-tag">Enterprise Trust</span>
+                        </div>
+                        <p>Blends global commercial credibility with local compliance. The natural choice for B2B tech services, enterprise solutions, and official brand presence where trust and authority matter.</p>
+                        <div class="domain-meta">
+                            <span>🏢 Enterprise</span>
+                            <span>🛡️ Business Grade</span>
+                        </div>
+                    </article>
 
-                <div class="domain-card">
-                    <div class="domain-card-header">
-                        <div class="domain-card-name">HEYDEV<span class="domain-card-tld">.CLOUD</span></div>
-                        <span class="domain-tag">Cloud Native</span>
+                    <article class="domain-card">
+                        <div class="domain-card-header">
+                            <h3 class="domain-card-name">HEYDEV<span class="domain-card-tld">.CLOUD</span></h3>
+                            <span class="domain-tag">Cloud Native</span>
+                        </div>
+                        <p>Instantly signals cloud infrastructure, DevOps, and modern architecture. A sharp, category-specific asset for teams building in the cloud-native and infrastructure space.</p>
+                        <div class="domain-meta">
+                            <span>☁️ Cloud Native</span>
+                            <span>🚀 High Relevance</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Developer Stories - New -->
+            <section class="stories-section" id="stories" aria-labelledby="stories-title">
+                <h2 class="section-title" id="stories-title">Developer Stories</h2>
+                <p class="section-subtitle">When technical vision meets brand domains, every choice is a strategic move</p>
+                
+                <div class="stories-grid">
+                    <article class="story-card">
+                        <div class="quote-icon">"</div>
+                        <h3>Cloud-Native Brand Elevation</h3>
+                        <span class="story-role">Tech Entrepreneur · Independent Developer</span>
+                        <p>In an era where cloud computing is the default infrastructure, a precise domain often communicates brand positioning more effectively than a lengthy feature list. For developers looking to turn technical expertise into a product, <strong>heydev.cloud</strong> is more than a URL — it is a declaration of focus on cloud and developer experience. Short, powerful, zero ambiguity — exactly what a technical brand needs at its foundation.</p>
+                        <div class="story-domain">→ Recommended: heydev.cloud</div>
+                    </article>
+
+                    <article class="story-card">
+                        <div class="quote-icon">"</div>
+                        <h3>Local Roots, Trust First</h3>
+                        <span class="story-role">Developer Community · China Market</span>
+                        <p>When building a developer community focused on China, <strong>heydev.cn</strong> serves as the cornerstone of brand strategy. Six letters, no ambiguity, clear pronunciation — users pass it along with virtually zero friction. Compared to lengthy subdomains, an independent .cn brand domain significantly boosts search authority and credibility, signaling to local users that this is a brand built for Chinese developers.</p>
+                        <div class="story-domain">→ Recommended: heydev.cn</div>
+                    </article>
+
+                    <article class="story-card">
+                        <div class="quote-icon">"</div>
+                        <h3>Enterprise Brand Moat</h3>
+                        <span class="story-role">B2B SaaS Company · Enterprise Services</span>
+                        <p>When pitching to large enterprise clients, <strong>heydev.com.cn</strong> often becomes a critical trust signal. It satisfies China's commercial compliance requirements while establishing a perception of legitimacy, professionalism, and long-term commitment. Paired with a .cn primary site, it forms a complete brand matrix that gives your team an edge in RFPs and business negotiations.</p>
+                        <div class="story-domain">→ Recommended: heydev.com.cn</div>
+                    </article>
+
+                    <article class="story-card">
+                        <div class="quote-icon">"</div>
+                        <h3>Portfolio Synergy</h3>
+                        <span class="story-role">Tech Brand Investor · Long-term Positioning</span>
+                        <p>Holding any single TLD leaves a brand gap. When a team secures the full set of <strong>heydev.cn + heydev.com.cn + heydev.cloud</strong>, they not only block competitor impersonation but also give each business line — community, enterprise, and cloud services — its own precise entry point. The portfolio's combined value far exceeds the sum of individual domains, making it a smart move for teams thinking long-term about brand architecture.</p>
+                        <div class="story-domain">→ Recommended: Full Domain Matrix</div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Value Proposition -->
+            <section class="value-section" id="value" aria-labelledby="value-title">
+                <h2 class="section-title" id="value-title">Why the Bundle?</h2>
+                <p class="section-subtitle">Strategic domain synergy — protect, position, and scale.</p>
+                <div class="value-grid">
+                    <article class="value-card">
+                        <div class="value-card-icon">🎯</div>
+                        <h3>Brand Moat</h3>
+                        <p>Owning .cn, .com.cn, and .cloud together locks down your brand namespace. No fragmentation, no impersonation, no traffic leaks.</p>
+                    </article>
+                    <article class="value-card">
+                        <div class="value-card-icon">🌐</div>
+                        <h3>Full Spectrum</h3>
+                        <p>Each domain serves a distinct strategic role — local reach, enterprise trust, and cloud positioning — covering every stage of your growth.</p>
+                    </article>
+                    <article class="value-card">
+                        <div class="value-card-icon">💎</div>
+                        <h3>Scarce Assets</h3>
+                        <p>Premium short domains are finite. "Hey + Dev" carries built-in warmth and instant developer recognition — a rare combination.</p>
+                    </article>
+                    <article class="value-card">
+                        <div class="value-card-icon">📈</div>
+                        <h3>Compound Value</h3>
+                        <p>The portfolio is worth more than the sum of its parts. Designed for teams thinking long-term about brand architecture.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Contact Section - Refactored -->
+            <section class="contact-section" id="contact" aria-labelledby="contact-title">
+                <div class="contact-box">
+                    <div class="contact-box-header">
+                        <h2 id="contact-title">Get in Touch · Brand Partnership</h2>
+                        <p>If you're looking for a brand domain portfolio that can carry your technical vision, feel free to reach out and explore the possibilities.</p>
                     </div>
-                    <p>Instantly signals cloud infrastructure, DevOps, and modern architecture. A sharp, category-specific asset for teams building in the cloud-native and infrastructure space.</p>
-                    <div class="domain-meta">
-                        <span>☁️ Cloud Native</span>
-                        <span>🚀 High Relevance</span>
+
+                    <div class="contact-grid">
+                        <div class="contact-info">
+                            <h3>🤝 Partnership Options</h3>
+                            <ul>
+                                <li><span class="highlight">heydev.cn</span> — China core entry, ideal for tech communities and dev platforms</li>
+                                <li><span class="highlight">heydev.com.cn</span> — Enterprise-grade trust, suited for B2B brand sites</li>
+                                <li><span class="highlight">heydev.cloud</span> — Cloud-native positioning, perfect for infrastructure and SaaS</li>
+                                <li>Available for <span class="highlight">individual acquisition</span> or <span class="highlight">portfolio transfer</span></li>
+                                <li>Brand consulting, domain transfer, and ongoing support included</li>
+                            </ul>
+                        </div>
+                        <div class="contact-info">
+                            <h3>📧 Contact</h3>
+                            <ul>
+                                <li>Send an email for partnership and business inquiries</li>
+                                <li>Typically respond within 24 hours</li>
+                                <li>Available in both English and Chinese</li>
+                                <li>Welcome to tech teams, investors, and brand strategists</li>
+                            </ul>
+                            <a href="mailto:jimmyshu51@gmail.com?subject=HEYDEV%20Brand%20Partnership%20Inquiry" class="email-display" id="emailBox" aria-label="Send email to jimmyshu51@gmail.com">
+                                <span>✉️</span>
+                                <span>jimmyshu51@gmail.com</span>
+                            </a>
+                            <p class="copy-hint">Click to open your email client</p>
+                        </div>
+                    </div>
+
+                    <hr class="contact-divider">
+
+                    <div class="contact-cta">
+                        <p>Whether you're a startup team searching for your first brand domain, or an established company expanding your brand matrix,<br>the HEYDEV portfolio can provide a solid foundation for your technical vision.</p>
+                        <a href="mailto:jimmyshu51@gmail.com?subject=HEYDEV%20Brand%20Partnership%20Inquiry" class="btn btn-primary" id="footerCtaBtn">
+                            Send Partnership Inquiry
+                        </a>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
 
-        <section class="value-section">
-            <h2 class="section-title">Why the Bundle?</h2>
-            <p class="section-subtitle">Strategic domain synergy — protect, position, and scale.</p>
-            <div class="value-grid">
-                <div class="value-card">
-                    <div class="value-card-icon">🎯</div>
-                    <h3>Brand Moat</h3>
-                    <p>Owning .cn, .com.cn, and .cloud together locks down your brand namespace. No fragmentation, no impersonation, no traffic leaks.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-card-icon">🌐</div>
-                    <h3>Full Spectrum</h3>
-                    <p>Each domain serves a distinct strategic role — local reach, enterprise trust, and cloud positioning — covering every stage of your growth.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-card-icon">💎</div>
-                    <h3>Scarce Assets</h3>
-                    <p>Premium short domains are finite. "Hey + Dev" carries built-in warmth and instant developer recognition — a rare combination.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-card-icon">📈</div>
-                    <h3>Compound Value</h3>
-                    <p>The portfolio is worth more than the sum of its parts. Designed for teams thinking long-term about brand architecture.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact-section" id="contact">
-            <div class="contact-box">
-                <h2>Ready to Build Something?</h2>
-                <p>If you're a team with a vision for the developer ecosystem, let's explore how this portfolio can become your foundation.</p>
-                <a href="mailto:jimmyshu51@gmail.com?subject=HEYDEV%20Brand%20Partnership%20Inquiry" class="email-display" id="emailBox">
-                    <span>✉️</span>
-                    <span>jimmyshu51@gmail.com</span>
-                </a>
-                <p class="copy-hint">Click to open your email client</p>
-            </div>
-        </section>
-
-        <footer>
+        <footer role="contentinfo">
             <div class="disclaimer-box">
                 <strong>Disclaimer:</strong><br>
                 The domain matrix displayed on this page (heydev.cn / heydev.com.cn / heydev.cloud) is an independently owned and operated technical developer project and domain asset portfolio. This project/website is not affiliated with, endorsed by, sponsored by, or connected to any third-party entities, corporations, products, or registered trademarks.
@@ -572,7 +817,7 @@
                 this.style.background = '';
             }, 300);
 
-            trackEmailClick('Bottom Contact Card');
+            trackEmailClick('Contact Section Email Card');
         });
 
         // Top Hero CTA Button Click Event
@@ -580,6 +825,14 @@
         if (heroBtn) {
             heroBtn.addEventListener('click', function() {
                 trackEmailClick('Hero CTA Button');
+            });
+        }
+
+        // Footer CTA Button Click Event
+        const footerCta = document.getElementById('footerCtaBtn');
+        if (footerCta) {
+            footerCta.addEventListener('click', function() {
+                trackEmailClick('Footer CTA Button');
             });
         }
 
