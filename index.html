@@ -607,12 +607,12 @@
                 <section class="devtools-section">
                     <div class="tool-card">
                         <div class="tool-tabs">
-                            <button class="tab-btn active" onclick="switchToolTab('json-panel')">JSON Formatter</button>
-                            <button class="tab-btn" onclick="switchToolTab('img-panel')">🖼️ Image Compressor</button>
-                            <button class="tab-btn" onclick="switchToolTab('md-panel')">📝 Markdown Editor</button>
-                            <button class="tab-btn" onclick="switchToolTab('base64-panel')">Base64 Converter</button>
-                            <button class="tab-btn" onclick="switchToolTab('time-panel')">Timestamp</button>
-                            <button class="tab-btn" onclick="switchToolTab('url-panel')">URL Encoder</button>
+                            <button class="tab-btn active" onclick="switchToolTab('json-panel', 'JSON Formatter')">JSON Formatter</button>
+                            <button class="tab-btn" onclick="switchToolTab('img-panel', 'Image Compressor')">🖼️ Image Compressor</button>
+                            <button class="tab-btn" onclick="switchToolTab('md-panel', 'Markdown Editor')">📝 Markdown Editor</button>
+                            <button class="tab-btn" onclick="switchToolTab('base64-panel', 'Base64 Converter')">Base64 Converter</button>
+                            <button class="tab-btn" onclick="switchToolTab('time-panel', 'Timestamp')">Timestamp</button>
+                            <button class="tab-btn" onclick="switchToolTab('url-panel', 'URL Encoder')">URL Encoder</button>
                         </div>
 
                         <!-- 1. JSON Panel -->
@@ -630,7 +630,7 @@
                             <div class="tool-actions">
                                 <button class="tool-btn" onclick="formatJSON()">✨ Format JSON</button>
                                 <button class="tool-btn" onclick="compressJSON()">⚡ Minify JSON</button>
-                                <button class="tool-btn" onclick="copyText('json-output', 'json-status')">📋 Copy Result</button>
+                                <button class="tool-btn" onclick="copyText('json-output', 'json-status', 'JSON Formatter')">📋 Copy Result</button>
                                 <button class="tool-btn" onclick="clearTool('json-input', 'json-output', 'json-status')">🗑️ Clear</button>
                             </div>
                             <div id="json-status" class="status-msg"></div>
@@ -700,7 +700,7 @@
                             <div class="tool-actions">
                                 <button class="tool-btn" onclick="encodeBase64()">🔒 Base64 Encode</button>
                                 <button class="tool-btn" onclick="decodeBase64()">🔓 Base64 Decode</button>
-                                <button class="tool-btn" onclick="copyText('base64-output', 'base64-status')">📋 Copy Result</button>
+                                <button class="tool-btn" onclick="copyText('base64-output', 'base64-status', 'Base64 Converter')">📋 Copy Result</button>
                                 <button class="tool-btn" onclick="clearTool('base64-input', 'base64-output', 'base64-status')">🗑️ Clear</button>
                             </div>
                             <div id="base64-status" class="status-msg"></div>
@@ -748,7 +748,7 @@
                             <div class="tool-actions">
                                 <button class="tool-btn" onclick="encodeURL()">🔗 URL Encode</button>
                                 <button class="tool-btn" onclick="decodeURL()">🔓 URL Decode</button>
-                                <button class="tool-btn" onclick="copyText('url-output', 'url-status')">📋 Copy Result</button>
+                                <button class="tool-btn" onclick="copyText('url-output', 'url-status', 'URL Encoder')">📋 Copy Result</button>
                                 <button class="tool-btn" onclick="clearTool('url-input', 'url-output', 'url-status')">🗑️ Clear</button>
                             </div>
                             <div id="url-status" class="status-msg"></div>
@@ -864,6 +864,24 @@
 
     <!-- Logic Script -->
     <script>
+        // --- GA4 Tracking Helper Functions ---
+        function trackToolTab(toolName) {
+            if (typeof gtag === 'function') {
+                gtag('event', 'tool_tab_click', {
+                    'tool_name': toolName
+                });
+            }
+        }
+
+        function trackToolAction(toolName, actionName) {
+            if (typeof gtag === 'function') {
+                gtag('event', 'tool_action_click', {
+                    'tool_name': toolName,
+                    'action_name': actionName
+                });
+            }
+        }
+
         // --- Core: View Switching logic ---
         function switchView(viewName) {
             const devtoolsView = document.getElementById('view-devtools');
@@ -911,11 +929,12 @@
         }
 
         // --- Inner Tool Tab Switcher ---
-        function switchToolTab(panelId) {
+        function switchToolTab(panelId, toolName) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.tool-panel').forEach(panel => panel.classList.remove('active'));
             event.target.classList.add('active');
             document.getElementById(panelId).classList.add('active');
+            if (toolName) trackToolTab(toolName);
         }
 
         function setStatus(id, msg, isError = false) {
@@ -924,10 +943,13 @@
             el.className = 'status-msg ' + (isError ? 'error' : 'success');
         }
 
-        function copyText(inputId, statusId) {
+        function copyText(inputId, statusId, toolName = 'Unknown') {
             const text = document.getElementById(inputId).value;
             if(!text) return setStatus(statusId, '❌ Content is empty', true);
-            navigator.clipboard.writeText(text).then(() => setStatus(statusId, '✅ Copied to clipboard!'));
+            navigator.clipboard.writeText(text).then(() => {
+                setStatus(statusId, '✅ Copied to clipboard!');
+                trackToolAction(toolName, 'copy_result');
+            });
         }
 
         function clearTool(inId, outId, statusId) {
@@ -943,6 +965,7 @@
                 if(!input.trim()) return;
                 document.getElementById('json-output').value = JSON.stringify(JSON.parse(input), null, 2);
                 setStatus('json-status', '✅ Formatted successfully');
+                trackToolAction('JSON Formatter', 'format_json');
             } catch(e) { setStatus('json-status', '❌ Syntax Error: ' + e.message, true); }
         }
 
@@ -952,6 +975,7 @@
                 if(!input.trim()) return;
                 document.getElementById('json-output').value = JSON.stringify(JSON.parse(input));
                 setStatus('json-status', '✅ Minified successfully');
+                trackToolAction('JSON Formatter', 'minify_json');
             } catch(e) { setStatus('json-status', '❌ Syntax Error: ' + e.message, true); }
         }
 
@@ -972,6 +996,7 @@
                     compressCurrentImg();
                     document.getElementById('img-preview-container').style.display = 'grid';
                     document.getElementById('download-img-btn').style.display = 'inline-flex';
+                    trackToolAction('Image Compressor', 'upload_image');
                 };
                 currentLoadedImg.src = evt.target.result;
             };
@@ -1003,6 +1028,7 @@
             a.href = compressedDataUrl;
             a.download = 'heydev-compressed.jpg';
             a.click();
+            trackToolAction('Image Compressor', 'download_image');
         }
 
         // --- Markdown Renderer ---
@@ -1015,7 +1041,10 @@
 
         function copyHTMLOutput() {
             const html = document.getElementById('md-preview').innerHTML;
-            navigator.clipboard.writeText(html).then(() => setStatus('md-status', '✅ Copied HTML Source!'));
+            navigator.clipboard.writeText(html).then(() => {
+                setStatus('md-status', '✅ Copied HTML Source!');
+                trackToolAction('Markdown Editor', 'copy_html');
+            });
         }
 
         // --- Base64 & URL & Timestamp Handlers ---
@@ -1024,6 +1053,7 @@
                 const input = document.getElementById('base64-input').value;
                 document.getElementById('base64-output').value = btoa(unescape(encodeURIComponent(input)));
                 setStatus('base64-status', '✅ Encoded successfully');
+                trackToolAction('Base64 Converter', 'encode');
             } catch (e) { setStatus('base64-status', '❌ Error: ' + e.message, true); }
         }
 
@@ -1032,18 +1062,21 @@
                 const input = document.getElementById('base64-input').value;
                 document.getElementById('base64-output').value = decodeURIComponent(escape(atob(input)));
                 setStatus('base64-status', '✅ Decoded successfully');
+                trackToolAction('Base64 Converter', 'decode');
             } catch (e) { setStatus('base64-status', '❌ Invalid Base64', true); }
         }
 
         function encodeURL() {
             document.getElementById('url-output').value = encodeURIComponent(document.getElementById('url-input').value);
             setStatus('url-status', '✅ URL Encoded');
+            trackToolAction('URL Encoder', 'encode');
         }
 
         function decodeURL() {
             try {
                 document.getElementById('url-output').value = decodeURIComponent(document.getElementById('url-input').value);
                 setStatus('url-status', '✅ URL Decoded');
+                trackToolAction('URL Encoder', 'decode');
             } catch(e) { setStatus('url-status', '❌ Decode Error', true); }
         }
 
@@ -1054,6 +1087,7 @@
         function toggleTimer() {
             isTimerRunning = !isTimerRunning;
             document.getElementById('timer-btn').innerText = isTimerRunning ? '⏸️ Pause Realtime' : '▶️ Resume Realtime';
+            trackToolAction('Timestamp', isTimerRunning ? 'resume_timer' : 'pause_timer');
         }
         function convertTsToDate() {
             let val = document.getElementById('ts-to-date-input').value.trim();
@@ -1061,11 +1095,13 @@
             if (val.length === 10) val = val * 1000;
             const d = new Date(Number(val));
             document.getElementById('ts-to-date-result').innerText = isNaN(d.getTime()) ? '❌ Invalid Timestamp' : '➔ ' + d.toLocaleString();
+            trackToolAction('Timestamp', 'convert_ts_to_date');
         }
         function convertDateToTs() {
             const val = document.getElementById('date-to-ts-input').value.trim();
             const d = new Date(val);
             document.getElementById('date-to-ts-result').innerText = isNaN(d.getTime()) ? '❌ Invalid Date String' : '➔ Seconds: ' + Math.floor(d.getTime()/1000);
+            trackToolAction('Timestamp', 'convert_date_to_ts');
         }
 
         // Initialize URL Hash routing
