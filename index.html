@@ -3,50 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="baidu-site-verification" content="codeva-mQL7G5qk0k" />
     
-    <!-- SEO Core -->
-    <title>HEYDEV — Brand Domain Portfolio | heydev.cn · heydev.com.cn · heydev.cloud</title>
-    <meta name="description" content="HEYDEV brand domain portfolio: heydev.cn (China developer market core), heydev.com.cn (enterprise trust), heydev.cloud (cloud-native positioning). Built for developer tools, SaaS, cloud-native teams. Open to brand partnership and strategic acquisition.">
-    <meta name="keywords" content="heydev, developer domain, dev domain, domain for sale, tech brand, cloud native domain, developer tools brand, heydev.cn, heydev.cloud, domain investment, brand moat">
+    <!-- Dynamic SEO Meta Tags -->
+    <title id="page-title">HEYDEV - Client-Side Developer Suite | 100% Private & Secure</title>
+    <meta name="description" id="page-desc" content="HEYDEV provides all-in-one developer tools: JSON Formatter, Local Image Compressor, Markdown Preview, Base64 & URL Encoder, and Timestamp Converter. 100% client-side computation, zero server tracking.">
+    <meta name="keywords" id="page-keywords" content="heydev, developer tools, DevTools, JSON formatter, image compressor, markdown editor, base64, timestamp converter">
     <meta name="author" content="HEYDEV">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="HEYDEV — Developer Brand Domain Portfolio">
-    <meta property="og:description" content="A curated set of brand-grade domains — .cn, .com.cn, and .cloud — built for teams ready to own the developer space.">
+    <meta property="og:title" content="HEYDEV - Developer Suite & Brand Assets">
+    <meta property="og:description" content="High-performance client-side developer tools + developer brand domain portfolio.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://heydev.cloud/">
+    <meta property="og:url" content="https://heydev.cn/">
     <meta property="og:site_name" content="HEYDEV">
     
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "HEYDEV",
-      "url": "https://heydev.cloud",
-      "email": "jimmyshu51@gmail.com",
-      "description": "Developer brand domain portfolio covering heydev.cn, heydev.com.cn, and heydev.cloud",
-      "brand": {
-        "@type": "Brand",
-        "name": "HEYDEV"
-      }
-    }
-    </script>
-    
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3408P787T"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PK0E5LSD3R"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
-      gtag('config', 'G-Q3408P787T');
+      gtag('config', 'G-PK0E5LSD3R');
     </script>
 
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "HEYDEV Tools",
+      "url": "https://heydev.cn/",
+      "description": "Secure client-side developer toolbox including JSON formatting, local image compression, Markdown preview, and more.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5."
+    }
+    </script>
+
+    <!-- Marked.js for Markdown Rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -64,6 +64,8 @@
             --text-muted: #94a3b8;
             --card: rgba(255,255,255,0.03);
             --border: rgba(255,255,255,0.08);
+            --success: #10b981;
+            --error: #ef4444;
         }
 
         body {
@@ -83,11 +85,13 @@
             padding: 0 24px;
         }
 
+        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 24px 0;
+            border-bottom: 1px solid var(--border);
         }
 
         .logo {
@@ -96,26 +100,43 @@
             font-weight: 700;
             color: var(--text);
             letter-spacing: -0.5px;
+            text-decoration: none;
+            cursor: pointer;
         }
 
-        .logo span {
-            color: var(--accent);
-        }
+        .logo span { color: var(--accent); }
 
-        .badge {
-            background: rgba(34, 211, 238, 0.1);
-            color: var(--accent);
-            border: 1px solid rgba(34, 211, 238, 0.2);
-            padding: 6px 16px;
+        .nav-switch-group {
+            display: flex;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            padding: 4px;
             border-radius: 100px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            gap: 4px;
         }
 
+        .nav-switch-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-switch-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            box-shadow: 0 2px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Hero Header */
         .hero {
             text-align: center;
-            padding: 60px 0 40px;
+            padding: 48px 0 32px;
         }
 
         .hero-label {
@@ -123,101 +144,258 @@
             background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(34,211,238,0.1));
             border: 1px solid rgba(99,102,241,0.2);
             color: var(--primary-glow);
-            padding: 8px 20px;
+            padding: 6px 16px;
             border-radius: 100px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 24px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
+            margin-bottom: 16px;
         }
 
         .domain-name {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2.2rem, 7vw, 3.8rem);
             font-weight: 700;
-            letter-spacing: -2px;
+            letter-spacing: -1px;
             background: linear-gradient(135deg, #fff 0%, #818cf8 50%, #22d3ee 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: 1.1;
-            margin-bottom: 16px;
+            line-height: 1.15;
+            margin-bottom: 12px;
         }
 
         .tagline {
-            font-size: 1.2rem;
+            font-size: 1.05rem;
             color: var(--text-muted);
-            max-width: 640px;
-            margin: 0 auto 40px;
+            max-width: 680px;
+            margin: 0 auto;
         }
 
-        .cta-group {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 32px;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: #fff;
-            box-shadow: 0 4px 24px rgba(99, 102, 241, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.4);
-        }
-
-        .btn-secondary {
-            background: var(--card);
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.06);
-            border-color: rgba(255,255,255,0.15);
-        }
-
-        .portfolio-section {
-            padding: 40px 0 60px;
-        }
-
+        /* Global Section Titles */
         .section-title {
             text-align: center;
-            font-size: 1.75rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             color: var(--text);
         }
 
         .section-subtitle {
             text-align: center;
             color: var(--text-muted);
-            margin-bottom: 48px;
-            font-size: 0.95rem;
+            margin-bottom: 32px;
+            font-size: 0.9rem;
+        }
+
+        /* View Section Controller */
+        .view-section {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .view-section.active-view {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ---------------- Section 1: Developer Toolbox ---------------- */
+        .devtools-section {
+            padding: 40px 0 60px;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            margin: 20px 0 60px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .tool-card { padding: 0 32px; }
+
+        .tool-tabs {
+            display: flex;
+            gap: 10px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+            /* 隐藏原生滚动条 */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
+        }
+
+        .tool-tabs::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 1px solid transparent;
+            color: var(--text-muted);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            color: var(--text);
+            background: rgba(255,255,255,0.03);
+        }
+
+        .tab-btn.active {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--accent);
+            border-color: rgba(34, 211, 238, 0.3);
+        }
+
+        .tool-panel { display: none; }
+        .tool-panel.active { display: block; }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .tool-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .tool-input-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        textarea, input[type="text"], input[type="number"] {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px;
+            color: var(--text);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.88rem;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus, input:focus { border-color: var(--accent); }
+
+        .tool-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .tool-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tool-btn:hover {
+            background: rgba(99, 102, 241, 0.2);
+            border-color: var(--primary-glow);
+            color: #fff;
+        }
+
+        .status-msg {
+            font-size: 0.8rem;
+            margin-top: 8px;
+            min-height: 20px;
+        }
+        .status-msg.success { color: var(--success); }
+        .status-msg.error { color: var(--error); }
+
+        /* Image Compression Custom Styles */
+        .image-compress-box {
+            border: 2px dashed var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            background: rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+        .image-compress-box:hover { border-color: var(--accent); }
+
+        .image-preview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .img-card {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .img-card img {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        /* Markdown Preview Custom Styles */
+        .markdown-preview {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            min-height: 220px;
+            max-height: 400px;
+            overflow-y: auto;
+            color: #d1d5db;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .markdown-preview h1, .markdown-preview h2, .markdown-preview h3 { color: #fff; margin-bottom: 8px; }
+        .markdown-preview code { background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; font-family: 'Fira Code', monospace; }
+        .markdown-preview p { margin-bottom: 8px; }
+
+        /* Timestamp Converter Custom Styles */
+        .timestamp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .time-card {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        /* ---------------- Section 2: Business & Domain Assets ---------------- */
+        .business-section {
+            padding: 20px 0 60px;
         }
 
         .domain-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
+            margin-bottom: 60px;
         }
 
         .domain-card {
@@ -233,10 +411,7 @@
         .domain-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
+            top: 0; left: 0; right: 0; height: 3px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -248,9 +423,7 @@
             box-shadow: 0 20px 48px rgba(0,0,0,0.4);
         }
 
-        .domain-card:hover::before {
-            opacity: 1;
-        }
+        .domain-card:hover::before { opacity: 1; }
 
         .domain-card-header {
             display: flex;
@@ -263,14 +436,9 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--text);
-            letter-spacing: -0.5px;
         }
 
-        .domain-card-tld {
-            color: var(--accent);
-            font-weight: 500;
-        }
+        .domain-card-tld { color: var(--accent); }
 
         .domain-tag {
             background: rgba(99, 102, 241, 0.1);
@@ -289,25 +457,8 @@
             margin-bottom: 20px;
         }
 
-        .domain-meta {
-            display: flex;
-            gap: 16px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .domain-meta span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* Developer Stories - New */
-        .stories-section {
-            padding: 60px 0;
-            border-top: 1px solid var(--border);
-        }
-
+        /* Developer Stories */
+        .stories-section { padding: 40px 0 60px; }
         .stories-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -320,7 +471,6 @@
             border-radius: 20px;
             padding: 32px;
             transition: all 0.3s ease;
-            position: relative;
         }
 
         .story-card:hover {
@@ -328,21 +478,7 @@
             transform: translateY(-4px);
         }
 
-        .story-card .quote-icon {
-            font-size: 2rem;
-            color: var(--primary);
-            opacity: 0.3;
-            margin-bottom: 12px;
-            font-family: Georgia, serif;
-        }
-
-        .story-card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 8px;
-        }
-
+        .story-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
         .story-card .story-role {
             font-size: 0.8rem;
             color: var(--accent);
@@ -354,12 +490,7 @@
             border-radius: 100px;
         }
 
-        .story-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
+        .story-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
         .story-card .story-domain {
             margin-top: 20px;
             padding-top: 20px;
@@ -369,59 +500,8 @@
             color: var(--accent);
         }
 
-        .value-section {
-            padding: 60px 0;
-            border-top: 1px solid var(--border);
-        }
-
-        .value-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-
-        .value-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 32px;
-            transition: all 0.3s ease;
-        }
-
-        .value-card:hover {
-            border-color: rgba(99, 102, 241, 0.2);
-        }
-
-        .value-card-icon {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            margin-bottom: 18px;
-        }
-
-        .value-card h3 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .value-card p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        /* Contact Section - Refactored */
-        .contact-section {
-            padding: 80px 0;
-            text-align: center;
-            border-top: 1px solid var(--border);
-        }
+        /* Contact Section */
+        .contact-section { padding: 20px 0 40px; }
 
         .contact-box {
             background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(34,211,238,0.05));
@@ -430,24 +510,6 @@
             padding: 60px 40px;
             max-width: 800px;
             margin: 0 auto;
-            text-align: left;
-        }
-
-        .contact-box-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .contact-box h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .contact-box > p {
-            color: var(--text-muted);
-            margin-bottom: 32px;
-            text-align: center;
         }
 
         .contact-grid {
@@ -457,38 +519,21 @@
             margin-bottom: 32px;
         }
 
-        .contact-info h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-
-        .contact-info ul {
-            list-style: none;
-            padding: 0;
-        }
-
+        .contact-info h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 16px; }
+        .contact-info ul { list-style: none; }
         .contact-info li {
             color: var(--text-muted);
             font-size: 0.9rem;
             margin-bottom: 12px;
-            padding-left: 24px;
+            padding-left: 20px;
             position: relative;
-            line-height: 1.6;
         }
-
         .contact-info li::before {
             content: '✓';
             position: absolute;
             left: 0;
             color: var(--accent);
             font-weight: 700;
-        }
-
-        .contact-info .highlight {
-            color: var(--accent);
-            font-weight: 600;
         }
 
         .email-display {
@@ -498,44 +543,15 @@
             background: rgba(255,255,255,0.05);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 16px 28px;
+            padding: 16px 24px;
             font-family: 'Space Grotesk', monospace;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--accent);
-            cursor: pointer;
-            transition: all 0.3s ease;
             text-decoration: none;
-            margin-top: 8px;
+            transition: all 0.3s ease;
         }
 
-        .email-display:hover {
-            background: rgba(255,255,255,0.08);
-            border-color: var(--accent);
-        }
-
-        .copy-hint {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 12px;
-            opacity: 0.7;
-            text-align: center;
-        }
-
-        .contact-divider {
-            border: none;
-            border-top: 1px solid var(--border);
-            margin: 32px 0;
-        }
-
-        .contact-cta {
-            text-align: center;
-        }
-
-        .contact-cta p {
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
+        .email-display:hover { border-color: var(--accent); background: rgba(255,255,255,0.08); }
 
         footer {
             text-align: center;
@@ -554,297 +570,515 @@
             border-radius: 8px;
             font-size: 0.75rem;
             color: #64748b;
-            line-height: 1.6;
             text-align: left;
         }
 
-        .disclaimer-box strong {
-            color: var(--text-muted);
-        }
-
-        .particle {
-            position: fixed;
-            width: 4px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 50%;
-            opacity: 0.3;
-            pointer-events: none;
-            animation: float 15s infinite;
-            z-index: 0;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
-            10% { opacity: 0.3; }
-            90% { opacity: 0.3; }
-            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
-        }
-
         @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-            .hero { padding: 40px 0 30px; }
-            .contact-box { padding: 40px 24px; }
-            .domain-grid { grid-template-columns: 1fr; }
-            .stories-grid { grid-template-columns: 1fr; }
+            .contact-grid, .tool-grid, .image-preview-grid { grid-template-columns: 1fr; }
+            .contact-box { padding: 32px 20px; }
+            .tool-card { padding: 0 16px; }
         }
     </style>
 </head>
 <body>
-    <div id="particles"></div>
 
     <div class="container">
-        <nav role="navigation" aria-label="Main navigation">
-            <div class="logo">HEY<span>DEV</span></div>
-            <div class="badge">Open to Partnership</div>
+        <!-- Top Navigation & View Mode Switcher -->
+        <nav role="navigation">
+            <div class="logo" onclick="switchView('devtools')">HEY<span>DEV</span></div>
+            <div class="nav-switch-group">
+                <button class="nav-switch-btn active" id="btn-view-devtools" onclick="switchView('devtools')">🛠️ Developer Tools</button>
+                <button class="nav-switch-btn" id="btn-view-business" onclick="switchView('business')">🤝 Partnership</button>
+            </div>
         </nav>
 
-        <header class="hero" role="banner">
-            <div class="hero-label">Brand Domain Portfolio</div>
-            <h1 class="domain-name">HEYDEV</h1>
-            <p class="tagline">
-                A curated set of brand-grade domains — .cn, .com.cn, and .cloud — <br>
-                built for teams ready to own the developer space.
+        <!-- Dynamic Hero Header -->
+        <header class="hero">
+            <div class="hero-label" id="hero-label-text">100% Client-Side · Zero Data Collection</div>
+            <h1 class="domain-name" id="hero-title-text">HEYDEV Toolbox</h1>
+            <p class="tagline" id="hero-desc-text">
+                A high-efficiency online tool suite built for developers. Processed entirely in browser for absolute privacy and security.
             </p>
-            <div class="cta-group">
-                <a href="#contact" class="btn btn-primary" id="heroCtaBtn" aria-label="Go to contact section">
-                    Let's Talk
-                </a>
-                <a href="#portfolio" class="btn btn-secondary" aria-label="Explore domain portfolio">
-                    Explore Portfolio
-                </a>
-            </div>
         </header>
 
         <main>
-            <!-- Domain Portfolio -->
-            <section class="portfolio-section" id="portfolio" aria-labelledby="portfolio-title">
-                <h2 class="section-title" id="portfolio-title">Domain Portfolio</h2>
-                <p class="section-subtitle">Three complementary assets. One cohesive brand strategy.</p>
-                
-                <div class="domain-grid">
-                    <article class="domain-card">
-                        <div class="domain-card-header">
-                            <h3 class="domain-card-name">HEYDEV<span class="domain-card-tld">.CN</span></h3>
-                            <span class="domain-tag">China Core</span>
+            <!-- ================= View 1: Developer Toolbox ================= -->
+            <div id="view-devtools" class="view-section active-view">
+                <section class="devtools-section">
+                    <div class="tool-card">
+                        <div class="tool-tabs">
+                            <button class="tab-btn active" onclick="switchToolTab('json-panel')">JSON Formatter</button>
+                            <button class="tab-btn" onclick="switchToolTab('img-panel')">🖼️ Image Compressor</button>
+                            <button class="tab-btn" onclick="switchToolTab('md-panel')">📝 Markdown Editor</button>
+                            <button class="tab-btn" onclick="switchToolTab('base64-panel')">Base64 Converter</button>
+                            <button class="tab-btn" onclick="switchToolTab('time-panel')">Timestamp</button>
+                            <button class="tab-btn" onclick="switchToolTab('url-panel')">URL Encoder</button>
                         </div>
-                        <p>The definitive entry point for the Chinese developer market. Short, memorable, and locally rooted — ideal for tech communities, dev platforms, and domestic SaaS brands seeking strong local identity.</p>
-                        <div class="domain-meta">
-                            <span>🇨🇳 China Market</span>
-                            <span>⚡ 6 Letters</span>
+
+                        <!-- 1. JSON Panel -->
+                        <div id="json-panel" class="tool-panel active">
+                            <div class="tool-grid">
+                                <div class="tool-input-group">
+                                    <label>Input JSON String</label>
+                                    <textarea id="json-input" rows="10" placeholder='Paste JSON data here, e.g., {"project":"heydev","type":"tools"}'></textarea>
+                                </div>
+                                <div class="tool-input-group">
+                                    <label>Formatted Result</label>
+                                    <textarea id="json-output" rows="10" readonly placeholder="Result will appear here..."></textarea>
+                                </div>
+                            </div>
+                            <div class="tool-actions">
+                                <button class="tool-btn" onclick="formatJSON()">✨ Format JSON</button>
+                                <button class="tool-btn" onclick="compressJSON()">⚡ Minify JSON</button>
+                                <button class="tool-btn" onclick="copyText('json-output', 'json-status')">📋 Copy Result</button>
+                                <button class="tool-btn" onclick="clearTool('json-input', 'json-output', 'json-status')">🗑️ Clear</button>
+                            </div>
+                            <div id="json-status" class="status-msg"></div>
                         </div>
-                    </article>
 
-                    <article class="domain-card">
-                        <div class="domain-card-header">
-                            <h3 class="domain-card-name">HEYDEV<span class="domain-card-tld">.COM.CN</span></h3>
-                            <span class="domain-tag">Enterprise Trust</span>
+                        <!-- 2. Image Compressor Panel -->
+                        <div id="img-panel" class="tool-panel">
+                            <div class="image-compress-box" onclick="document.getElementById('img-file-input').click()">
+                                <input type="file" id="img-file-input" accept="image/*" style="display:none;" onchange="handleImageUpload(event)">
+                                <p style="font-size: 1.1rem; font-weight: 600; color: var(--accent);">📁 Click to Upload or Drag Image Here</p>
+                                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 8px;">Supports PNG, JPG, WEBP (Processed 100% locally in browser, no server transfer)</p>
+                            </div>
+                            
+                            <div style="margin-top: 20px; display: flex; align-items: center; gap: 16px;">
+                                <label style="font-size: 0.9rem; color: var(--text-muted);">Compression Quality: <span id="quality-val">80</span>%</label>
+                                <input type="range" id="quality-slider" min="10" max="100" value="80" style="flex:1;" oninput="document.getElementById('quality-val').innerText=this.value; compressCurrentImg();">
+                            </div>
+
+                            <div class="image-preview-grid" id="img-preview-container" style="display: none;">
+                                <div class="img-card">
+                                    <h4 style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">Original (<span id="orig-size">0 KB</span>)</h4>
+                                    <img id="orig-img-preview" src="" alt="Original Preview">
+                                </div>
+                                <div class="img-card">
+                                    <h4 style="font-size: 0.85rem; color: var(--accent); margin-bottom: 8px;">Compressed (<span id="compressed-size">0 KB</span>)</h4>
+                                    <img id="compressed-img-preview" src="" alt="Compressed Preview">
+                                </div>
+                            </div>
+
+                            <div class="tool-actions" style="margin-top: 20px;">
+                                <button class="tool-btn" id="download-img-btn" style="display:none;" onclick="downloadCompressedImg()">⬇️ Download Compressed Image</button>
+                            </div>
+                            <div id="img-status" class="status-msg"></div>
                         </div>
-                        <p>Blends global commercial credibility with local compliance. The natural choice for B2B tech services, enterprise solutions, and official brand presence where trust and authority matter.</p>
-                        <div class="domain-meta">
-                            <span>🏢 Enterprise</span>
-                            <span>🛡️ Business Grade</span>
+
+                        <!-- 3. Markdown Editor Panel -->
+                        <div id="md-panel" class="tool-panel">
+                            <div class="tool-grid">
+                                <div class="tool-input-group">
+                                    <label>Input Markdown</label>
+                                    <textarea id="md-input" rows="12" placeholder="# HEYDEV&#n\n**Efficient** developer toolkit..." oninput="renderMarkdown()"></textarea>
+                                </div>
+                                <div class="tool-input-group">
+                                    <label>Live HTML Preview</label>
+                                    <div id="md-preview" class="markdown-preview"></div>
+                                </div>
+                            </div>
+                            <div class="tool-actions">
+                                <button class="tool-btn" onclick="copyHTMLOutput()">📋 Copy Generated HTML Source</button>
+                                <button class="tool-btn" onclick="clearTool('md-input', '', 'md-status'); document.getElementById('md-preview').innerHTML='';">🗑️ Clear</button>
+                            </div>
+                            <div id="md-status" class="status-msg"></div>
                         </div>
-                    </article>
 
-                    <article class="domain-card">
-                        <div class="domain-card-header">
-                            <h3 class="domain-card-name">HEYDEV<span class="domain-card-tld">.CLOUD</span></h3>
-                            <span class="domain-tag">Cloud Native</span>
+                        <!-- 4. Base64 Panel -->
+                        <div id="base64-panel" class="tool-panel">
+                            <div class="tool-grid">
+                                <div class="tool-input-group">
+                                    <label>Input Text</label>
+                                    <textarea id="base64-input" rows="10" placeholder="Enter string to encode or decode..."></textarea>
+                                </div>
+                                <div class="tool-input-group">
+                                    <label>Output Result</label>
+                                    <textarea id="base64-output" rows="10" readonly placeholder="Result will appear here..."></textarea>
+                                </div>
+                            </div>
+                            <div class="tool-actions">
+                                <button class="tool-btn" onclick="encodeBase64()">🔒 Base64 Encode</button>
+                                <button class="tool-btn" onclick="decodeBase64()">🔓 Base64 Decode</button>
+                                <button class="tool-btn" onclick="copyText('base64-output', 'base64-status')">📋 Copy Result</button>
+                                <button class="tool-btn" onclick="clearTool('base64-input', 'base64-output', 'base64-status')">🗑️ Clear</button>
+                            </div>
+                            <div id="base64-status" class="status-msg"></div>
                         </div>
-                        <p>Instantly signals cloud infrastructure, DevOps, and modern architecture. A sharp, category-specific asset for teams building in the cloud-native and infrastructure space.</p>
-                        <div class="domain-meta">
-                            <span>☁️ Cloud Native</span>
-                            <span>🚀 High Relevance</span>
+
+                        <!-- 5. Timestamp Panel -->
+                        <div id="time-panel" class="tool-panel">
+                            <div class="timestamp-grid">
+                                <div class="time-card">
+                                    <h4 style="color:var(--accent);">Current UNIX Timestamp</h4>
+                                    <p style="font-size: 1.5rem; font-family: 'Fira Code', monospace; color: var(--accent); margin: 10px 0;" id="current-timestamp">0</p>
+                                    <button class="tool-btn" onclick="toggleTimer()" id="timer-btn">⏸️ Pause Realtime</button>
+                                </div>
+                                <div class="time-card">
+                                    <h4>Timestamp ➔ Local Date</h4>
+                                    <input type="text" id="ts-to-date-input" placeholder="Enter 10 or 13-digit timestamp">
+                                    <div class="tool-actions">
+                                        <button class="tool-btn" onclick="convertTsToDate()">Convert</button>
+                                    </div>
+                                    <p id="ts-to-date-result" style="margin-top: 10px; font-family: 'Fira Code', monospace; font-size: 0.85rem; color: var(--accent);"></p>
+                                </div>
+                                <div class="time-card">
+                                    <h4>Date String ➔ Timestamp</h4>
+                                    <input type="text" id="date-to-ts-input" placeholder="2026-08-27 12:00:00">
+                                    <div class="tool-actions">
+                                        <button class="tool-btn" onclick="convertDateToTs()">Convert</button>
+                                    </div>
+                                    <p id="date-to-ts-result" style="margin-top: 10px; font-family: 'Fira Code', monospace; font-size: 0.85rem; color: var(--accent);"></p>
+                                </div>
+                            </div>
                         </div>
-                    </article>
-                </div>
-            </section>
 
-            <!-- Developer Stories - New -->
-            <section class="stories-section" id="stories" aria-labelledby="stories-title">
-                <h2 class="section-title" id="stories-title">Developer Stories</h2>
-                <p class="section-subtitle">When technical vision meets brand domains, every choice is a strategic move</p>
-                
-                <div class="stories-grid">
-                    <article class="story-card">
-                        <div class="quote-icon">"</div>
-                        <h3>Cloud-Native Brand Elevation</h3>
-                        <span class="story-role">Tech Entrepreneur · Independent Developer</span>
-                        <p>In an era where cloud computing is the default infrastructure, a precise domain often communicates brand positioning more effectively than a lengthy feature list. For developers looking to turn technical expertise into a product, <strong>heydev.cloud</strong> is more than a URL — it is a declaration of focus on cloud and developer experience. Short, powerful, zero ambiguity — exactly what a technical brand needs at its foundation.</p>
-                        <div class="story-domain">→ Recommended: heydev.cloud</div>
-                    </article>
+                        <!-- 6. URL Panel -->
+                        <div id="url-panel" class="tool-panel">
+                            <div class="tool-grid">
+                                <div class="tool-input-group">
+                                    <label>Input URL or Parameter</label>
+                                    <textarea id="url-input" rows="10" placeholder="Enter URL string to Encode or Decode..."></textarea>
+                                </div>
+                                <div class="tool-input-group">
+                                    <label>Output Result</label>
+                                    <textarea id="url-output" rows="10" readonly placeholder="Result will appear here..."></textarea>
+                                </div>
+                            </div>
+                            <div class="tool-actions">
+                                <button class="tool-btn" onclick="encodeURL()">🔗 URL Encode</button>
+                                <button class="tool-btn" onclick="decodeURL()">🔓 URL Decode</button>
+                                <button class="tool-btn" onclick="copyText('url-output', 'url-status')">📋 Copy Result</button>
+                                <button class="tool-btn" onclick="clearTool('url-input', 'url-output', 'url-status')">🗑️ Clear</button>
+                            </div>
+                            <div id="url-status" class="status-msg"></div>
+                        </div>
 
-                    <article class="story-card">
-                        <div class="quote-icon">"</div>
-                        <h3>Local Roots, Trust First</h3>
-                        <span class="story-role">Developer Community · China Market</span>
-                        <p>When building a developer community focused on China, <strong>heydev.cn</strong> serves as the cornerstone of brand strategy. Six letters, no ambiguity, clear pronunciation — users pass it along with virtually zero friction. Compared to lengthy subdomains, an independent .cn brand domain significantly boosts search authority and credibility, signaling to local users that this is a brand built for Chinese developers.</p>
-                        <div class="story-domain">→ Recommended: heydev.cn</div>
-                    </article>
+                    </div>
+                </section>
+            </div>
 
-                    <article class="story-card">
-                        <div class="quote-icon">"</div>
-                        <h3>Enterprise Brand Moat</h3>
-                        <span class="story-role">B2B SaaS Company · Enterprise Services</span>
-                        <p>When pitching to large enterprise clients, <strong>heydev.com.cn</strong> often becomes a critical trust signal. It satisfies China's commercial compliance requirements while establishing a perception of legitimacy, professionalism, and long-term commitment. Paired with a .cn primary site, it forms a complete brand matrix that gives your team an edge in RFPs and business negotiations.</p>
-                        <div class="story-domain">→ Recommended: heydev.com.cn</div>
-                    </article>
+            <!-- ================= View 2: Business & Domain Assets ================= -->
+            <div id="view-business" class="view-section">
+                <section class="business-section">
+                    <h2 class="section-title">🌐 Brand Domain Matrix</h2>
+                    <p class="section-subtitle">Three complementary premium domains forming a strategic tech brand moat</p>
 
-                    <article class="story-card">
-                        <div class="quote-icon">"</div>
-                        <h3>Portfolio Synergy</h3>
-                        <span class="story-role">Tech Brand Investor · Long-term Positioning</span>
-                        <p>Holding any single TLD leaves a brand gap. When a team secures the full set of <strong>heydev.cn + heydev.com.cn + heydev.cloud</strong>, they not only block competitor impersonation but also give each business line — community, enterprise, and cloud services — its own precise entry point. The portfolio's combined value far exceeds the sum of individual domains, making it a smart move for teams thinking long-term about brand architecture.</p>
-                        <div class="story-domain">→ Recommended: Full Domain Matrix</div>
-                    </article>
-                </div>
-            </section>
+                    <div class="domain-grid">
+                        <article class="domain-card">
+                            <div class="domain-card-header">
+                                <h3 class="domain-card-name">HEYDEV<span class="domain-card-tld">.CN</span></h3>
+                                <span class="domain-tag">China Core</span>
+                            </div>
+                            <p>The premier country code TLD for China. Essential for establishing localized developer trust, tech communities, and regional SaaS brands in China.</p>
+                        </article>
 
-            <!-- Value Proposition -->
-            <section class="value-section" id="value" aria-labelledby="value-title">
-                <h2 class="section-title" id="value-title">Why the Bundle?</h2>
-                <p class="section-subtitle">Strategic domain synergy — protect, position, and scale.</p>
-                <div class="value-grid">
-                    <article class="value-card">
-                        <div class="value-card-icon">🎯</div>
-                        <h3>Brand Moat</h3>
-                        <p>Owning .cn, .com.cn, and .cloud together locks down your brand namespace. No fragmentation, no impersonation, no traffic leaks.</p>
-                    </article>
-                    <article class="value-card">
-                        <div class="value-card-icon">🌐</div>
-                        <h3>Full Spectrum</h3>
-                        <p>Each domain serves a distinct strategic role — local reach, enterprise trust, and cloud positioning — covering every stage of your growth.</p>
-                    </article>
-                    <article class="value-card">
-                        <div class="value-card-icon">💎</div>
-                        <h3>Scarce Assets</h3>
-                        <p>Premium short domains are finite. "Hey + Dev" carries built-in warmth and instant developer recognition — a rare combination.</p>
-                    </article>
-                    <article class="value-card">
-                        <div class="value-card-icon">📈</div>
-                        <h3>Compound Value</h3>
-                        <p>The portfolio is worth more than the sum of its parts. Designed for teams thinking long-term about brand architecture.</p>
-                    </article>
-                </div>
-            </section>
+                        <article class="domain-card">
+                            <div class="domain-card-header">
+                                <h3 class="domain-card-name">HEYDEV<span class="domain-card-tld">.COM.CN</span></h3>
+                                <span class="domain-tag">Commercial</span>
+                            </div>
+                            <p>The classic commercial entity domain in China. Ideal for corporate enterprise services, B2B tech solutions, and official brand backbones.</p>
+                        </article>
 
-            <!-- Contact Section - Refactored -->
-            <section class="contact-section" id="contact" aria-labelledby="contact-title">
-                <div class="contact-box">
-                    <div class="contact-box-header">
-                        <h2 id="contact-title">Get in Touch · Brand Partnership</h2>
-                        <p>If you're looking for a brand domain portfolio that can carry your technical vision, feel free to reach out and explore the possibilities.</p>
+                        <article class="domain-card">
+                            <div class="domain-card-header">
+                                <h3 class="domain-card-name">HEYDEV<span class="domain-card-tld">.CLOUD</span></h3>
+                                <span class="domain-tag">Cloud Native</span>
+                            </div>
+                            <p>A global modern TLD built for Cloud Computing, Kubernetes, DevOps, and Infrastructure software. Ultra-clear positioning for global tech platforms.</p>
+                        </article>
                     </div>
 
-                    <div class="contact-grid">
-                        <div class="contact-info">
-                            <h3>🤝 Partnership Options</h3>
-                            <ul>
-                                <li><span class="highlight">heydev.cn</span> — China core entry, ideal for tech communities and dev platforms</li>
-                                <li><span class="highlight">heydev.com.cn</span> — Enterprise-grade trust, suited for B2B brand sites</li>
-                                <li><span class="highlight">heydev.cloud</span> — Cloud-native positioning, perfect for infrastructure and SaaS</li>
-                                <li>Available for <span class="highlight">individual acquisition</span> or <span class="highlight">portfolio transfer</span></li>
-                                <li>Brand consulting, domain transfer, and ongoing support included</li>
-                            </ul>
-                        </div>
-                        <div class="contact-info">
-                            <h3>📧 Contact</h3>
-                            <ul>
-                                <li>Send an email for partnership and business inquiries</li>
-                                <li>Typically respond within 24 hours</li>
-                                <li>Available in both English and Chinese</li>
-                                <li>Welcome to tech teams, investors, and brand strategists</li>
-                            </ul>
-                            <a href="mailto:jimmyshu51@gmail.com?subject=HEYDEV%20Brand%20Partnership%20Inquiry" class="email-display" id="emailBox" aria-label="Send email to jimmyshu51@gmail.com">
-                                <span>✉️</span>
-                                <span>jimmyshu51@gmail.com</span>
-                            </a>
-                            <p class="copy-hint">Click to open your email client</p>
+                    <!-- Developer Stories -->
+                    <div class="stories-section">
+                        <h2 class="section-title">Developer Stories</h2>
+                        <p class="section-subtitle">When technical vision meets premium identity, every choice is a strategic positioning</p>
+
+                        <div class="stories-grid">
+                            <article class="story-card">
+                                <h3>Global Brand Elevation for Cloud Tools</h3>
+                                <span class="story-role">Tech Founder · Indie Hacker</span>
+                                <p>In an era where cloud native is the infrastructure standard, a sharp domain speaks louder than lengthy feature lists. <strong>heydev.cloud</strong> instantly communicates specialized cloud expertise.</p>
+                                <div class="story-domain">→ Featured Domain: heydev.cloud</div>
+                            </article>
+
+                            <article class="story-card">
+                                <h3>Deep Local Roots & Trust</h3>
+                                <span class="story-role">Developer Community · Regional Lead</span>
+                                <p>For tech platforms expanding into Chinese developer ecosystems, <strong>heydev.cn</strong> is the cornerstone asset. Short, crisp, and authoritative for local user search and word-of-mouth.</p>
+                                <div class="story-domain">→ Featured Domain: heydev.cn</div>
+                            </article>
+
+                            <article class="story-card">
+                                <h3>Enterprise Moat for B2B Services</h3>
+                                <span class="story-role">B2B SaaS Startup · Enterprise Services</span>
+                                <p>When pitching enterprise clients, <strong>heydev.com.cn</strong> fulfills corporate compliance expectations while building trust as a legal, reliable, long-term software partner.</p>
+                                <div class="story-domain">→ Featured Domain: heydev.com.cn</div>
+                            </article>
                         </div>
                     </div>
 
-                    <hr class="contact-divider">
+                    <!-- Contact & Business Inquiries -->
+                    <div class="contact-section">
+                        <div class="contact-box">
+                            <h2 class="section-title" style="margin-bottom: 8px;">🤝 Contact & Business Collaboration</h2>
+                            <p style="text-align: center; color: var(--text-muted); margin-bottom: 32px;">Open to discussions with engineering teams, startups, and domain investors</p>
 
-                    <div class="contact-cta">
-                        <p>Whether you're a startup team searching for your first brand domain, or an established company expanding your brand matrix,<br>the HEYDEV portfolio can provide a solid foundation for your technical vision.</p>
-                        <a href="mailto:jimmyshu51@gmail.com?subject=HEYDEV%20Brand%20Partnership%20Inquiry" class="btn btn-primary" id="footerCtaBtn">
-                            Send Partnership Inquiry
-                        </a>
+                            <div class="contact-grid">
+                                <div class="contact-info">
+                                    <h3>Partnership Terms</h3>
+                                    <ul>
+                                        <li>Supports asset collaboration for heydev.cn / .com.cn / .cloud</li>
+                                        <li>Available for individual licensing or full bundle acquisition</li>
+                                        <li>Escrow & safe transaction available via Escrow, Sedo, or Dan.com</li>
+                                    </ul>
+                                </div>
+                                <div class="contact-info">
+                                    <h3>Direct Reach</h3>
+                                    <ul>
+                                        <li>For inquiries, please send an email to the address below</li>
+                                        <li>Fluent in English & Chinese, responses within 24 hours</li>
+                                    </ul>
+                                    <a href="mailto:jimmyshu51@gmail.com?subject=HEYDEV%20Business%20Inquiry" class="email-display">
+                                        <span>✉️</span>
+                                        <span>jimmyshu51@gmail.com</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </main>
 
-        <footer role="contentinfo">
+        <!-- Footer -->
+        <footer>
             <div class="disclaimer-box">
                 <strong>Disclaimer:</strong><br>
-                The domain matrix displayed on this page (heydev.cn / heydev.com.cn / heydev.cloud) is an independently owned and operated technical developer project and domain asset portfolio. This project/website is not affiliated with, endorsed by, sponsored by, or connected to any third-party entities, corporations, products, or registered trademarks.
+                The domain matrix (heydev.cn / heydev.com.cn / heydev.cloud) showcased on this website represents independently owned developer projects and digital brand assets. This site is not affiliated with or endorsed by any third-party corporate entities or registered trademarks.
             </div>
-            <p>© 2026 HEYDEV Domain Portfolio · Partnership Inquiries: jimmyshu51@gmail.com</p>
+            <p>© 2026 HEYDEV Developer Tools & Brand Services · Contact: jimmyshu51@gmail.com</p>
         </footer>
     </div>
 
+    <!-- Logic Script -->
     <script>
-        // Generate particles
-        const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 30; i++) {
-            const p = document.createElement('div');
-            p.className = 'particle';
-            p.style.left = Math.random() * 100 + 'vw';
-            p.style.top = Math.random() * 100 + 'vh';
-            p.style.animationDelay = Math.random() * 15 + 's';
-            p.style.animationDuration = (10 + Math.random() * 10) + 's';
-            particlesContainer.appendChild(p);
-        }
+        // --- Core: View Switching logic ---
+        function switchView(viewName) {
+            const devtoolsView = document.getElementById('view-devtools');
+            const businessView = document.getElementById('view-business');
+            const btnDevtools = document.getElementById('btn-view-devtools');
+            const btnBusiness = document.getElementById('btn-view-business');
 
-        // Helper function for GA4 event tracking
-        function trackEmailClick(locationLabel) {
-            if (typeof gtag === 'function') {
-                gtag('event', 'click_contact_email', {
-                    'event_category': 'Engagement',
-                    'event_label': locationLabel
-                });
+            // Header Elements
+            const heroLabel = document.getElementById('hero-label-text');
+            const heroTitle = document.getElementById('hero-title-text');
+            const heroDesc = document.getElementById('hero-desc-text');
+
+            // SEO Dynamic Page Title
+            const pageTitle = document.getElementById('page-title');
+
+            if (viewName === 'business') {
+                devtoolsView.classList.remove('active-view');
+                businessView.classList.add('active-view');
+                btnDevtools.classList.remove('active');
+                btnBusiness.classList.add('active');
+
+                // Dynamic update Hero content for Business
+                heroLabel.innerText = "Developer Assets & Business Hub";
+                heroTitle.innerText = "HEYDEV Business";
+                heroDesc.innerHTML = "Open for domain asset acquisition and brand project collaborations (heydev.cn / heydev.cloud / heydev.com.cn).";
+                
+                // Dynamic update TDK
+                pageTitle.innerText = "HEYDEV - Business & Premium Domain Matrix | heydev.cn";
+                window.location.hash = "business";
+            } else {
+                businessView.classList.remove('active-view');
+                devtoolsView.classList.add('active-view');
+                btnBusiness.classList.remove('active');
+                btnDevtools.classList.add('active');
+
+                // Dynamic update Hero content for Tools
+                heroLabel.innerText = "100% Client-Side · Zero Data Collection";
+                heroTitle.innerText = "HEYDEV Toolbox";
+                heroDesc.innerHTML = "A high-efficiency online tool suite built for developers. Processed entirely in browser for absolute privacy and security.";
+                
+                // Dynamic update TDK
+                pageTitle.innerText = "HEYDEV - Client-Side Developer Suite | 100% Private & Secure";
+                window.location.hash = "devtools";
             }
         }
 
-        // Bottom Email Box Click Event
-        document.getElementById('emailBox').addEventListener('click', function(e) {
-            this.style.background = 'rgba(34, 211, 238, 0.1)';
-            setTimeout(() => {
-                this.style.background = '';
-            }, 300);
-
-            trackEmailClick('Contact Section Email Card');
-        });
-
-        // Top Hero CTA Button Click Event
-        const heroBtn = document.getElementById('heroCtaBtn');
-        if (heroBtn) {
-            heroBtn.addEventListener('click', function() {
-                trackEmailClick('Hero CTA Button');
-            });
+        // --- Inner Tool Tab Switcher ---
+        function switchToolTab(panelId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tool-panel').forEach(panel => panel.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(panelId).classList.add('active');
         }
 
-        // Footer CTA Button Click Event
-        const footerCta = document.getElementById('footerCtaBtn');
-        if (footerCta) {
-            footerCta.addEventListener('click', function() {
-                trackEmailClick('Footer CTA Button');
-            });
+        function setStatus(id, msg, isError = false) {
+            const el = document.getElementById(id);
+            el.innerText = msg;
+            el.className = 'status-msg ' + (isError ? 'error' : 'success');
         }
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            });
+        function copyText(inputId, statusId) {
+            const text = document.getElementById(inputId).value;
+            if(!text) return setStatus(statusId, '❌ Content is empty', true);
+            navigator.clipboard.writeText(text).then(() => setStatus(statusId, '✅ Copied to clipboard!'));
+        }
+
+        function clearTool(inId, outId, statusId) {
+            if(inId) document.getElementById(inId).value = '';
+            if(outId) document.getElementById(outId).value = '';
+            if(statusId) document.getElementById(statusId).innerText = '';
+        }
+
+        // --- JSON Handlers ---
+        function formatJSON() {
+            try {
+                const input = document.getElementById('json-input').value;
+                if(!input.trim()) return;
+                document.getElementById('json-output').value = JSON.stringify(JSON.parse(input), null, 2);
+                setStatus('json-status', '✅ Formatted successfully');
+            } catch(e) { setStatus('json-status', '❌ Syntax Error: ' + e.message, true); }
+        }
+
+        function compressJSON() {
+            try {
+                const input = document.getElementById('json-input').value;
+                if(!input.trim()) return;
+                document.getElementById('json-output').value = JSON.stringify(JSON.parse(input));
+                setStatus('json-status', '✅ Minified successfully');
+            } catch(e) { setStatus('json-status', '❌ Syntax Error: ' + e.message, true); }
+        }
+
+        // --- Image Local Compression Logic ---
+        let currentLoadedImg = null;
+        let compressedDataUrl = '';
+
+        function handleImageUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            document.getElementById('orig-size').innerText = (file.size / 1024).toFixed(1) + ' KB';
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                currentLoadedImg = new Image();
+                currentLoadedImg.onload = function() {
+                    document.getElementById('orig-img-preview').src = evt.target.result;
+                    compressCurrentImg();
+                    document.getElementById('img-preview-container').style.display = 'grid';
+                    document.getElementById('download-img-btn').style.display = 'inline-flex';
+                };
+                currentLoadedImg.src = evt.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function compressCurrentImg() {
+            if (!currentLoadedImg) return;
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = currentLoadedImg.width;
+            canvas.height = currentLoadedImg.height;
+            ctx.drawImage(currentLoadedImg, 0, 0);
+
+            const quality = document.getElementById('quality-slider').value / 100;
+            compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
+
+            document.getElementById('compressed-img-preview').src = compressedDataUrl;
+            
+            const head = 'data:image/jpeg;base64,';
+            const sizeInBytes = Math.round((compressedDataUrl.length - head.length) * 3 / 4);
+            document.getElementById('compressed-size').innerText = (sizeInBytes / 1024).toFixed(1) + ' KB';
+            setStatus('img-status', '✅ Compression completed');
+        }
+
+        function downloadCompressedImg() {
+            if (!compressedDataUrl) return;
+            const a = document.createElement('a');
+            a.href = compressedDataUrl;
+            a.download = 'heydev-compressed.jpg';
+            a.click();
+        }
+
+        // --- Markdown Renderer ---
+        function renderMarkdown() {
+            const raw = document.getElementById('md-input').value;
+            if (typeof marked !== 'undefined') {
+                document.getElementById('md-preview').innerHTML = marked.parse(raw);
+            }
+        }
+
+        function copyHTMLOutput() {
+            const html = document.getElementById('md-preview').innerHTML;
+            navigator.clipboard.writeText(html).then(() => setStatus('md-status', '✅ Copied HTML Source!'));
+        }
+
+        // --- Base64 & URL & Timestamp Handlers ---
+        function encodeBase64() {
+            try {
+                const input = document.getElementById('base64-input').value;
+                document.getElementById('base64-output').value = btoa(unescape(encodeURIComponent(input)));
+                setStatus('base64-status', '✅ Encoded successfully');
+            } catch (e) { setStatus('base64-status', '❌ Error: ' + e.message, true); }
+        }
+
+        function decodeBase64() {
+            try {
+                const input = document.getElementById('base64-input').value;
+                document.getElementById('base64-output').value = decodeURIComponent(escape(atob(input)));
+                setStatus('base64-status', '✅ Decoded successfully');
+            } catch (e) { setStatus('base64-status', '❌ Invalid Base64', true); }
+        }
+
+        function encodeURL() {
+            document.getElementById('url-output').value = encodeURIComponent(document.getElementById('url-input').value);
+            setStatus('url-status', '✅ URL Encoded');
+        }
+
+        function decodeURL() {
+            try {
+                document.getElementById('url-output').value = decodeURIComponent(document.getElementById('url-input').value);
+                setStatus('url-status', '✅ URL Decoded');
+            } catch(e) { setStatus('url-status', '❌ Decode Error', true); }
+        }
+
+        let isTimerRunning = true;
+        function updateTimestamp() {
+            if (isTimerRunning) document.getElementById('current-timestamp').innerText = Math.floor(Date.now() / 1000);
+        }
+        function toggleTimer() {
+            isTimerRunning = !isTimerRunning;
+            document.getElementById('timer-btn').innerText = isTimerRunning ? '⏸️ Pause Realtime' : '▶️ Resume Realtime';
+        }
+        function convertTsToDate() {
+            let val = document.getElementById('ts-to-date-input').value.trim();
+            if (!val) return;
+            if (val.length === 10) val = val * 1000;
+            const d = new Date(Number(val));
+            document.getElementById('ts-to-date-result').innerText = isNaN(d.getTime()) ? '❌ Invalid Timestamp' : '➔ ' + d.toLocaleString();
+        }
+        function convertDateToTs() {
+            const val = document.getElementById('date-to-ts-input').value.trim();
+            const d = new Date(val);
+            document.getElementById('date-to-ts-result').innerText = isNaN(d.getTime()) ? '❌ Invalid Date String' : '➔ Seconds: ' + Math.floor(d.getTime()/1000);
+        }
+
+        // Initialize URL Hash routing
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash === '#business') {
+                switchView('business');
+            } else {
+                switchView('devtools');
+            }
         });
+
+        setInterval(updateTimestamp, 1000);
+        updateTimestamp();
     </script>
 </body>
 </html>
